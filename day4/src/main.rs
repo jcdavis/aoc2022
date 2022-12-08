@@ -14,8 +14,8 @@ fn main() {
       (c[3].parse::<i32>().unwrap(), c[4].parse::<i32>().unwrap()))
   }).filter( |tuples| {
       let ((left_min, left_max), (right_min, right_max)) = tuples;
-      (left_min <= right_min && left_max >= right_max) ||
-        (right_min <= left_min && right_max >= left_max)
+      (left_min <= right_min && right_min <= left_max) ||
+        (right_min <= left_min && left_min <= right_max)
   }).count();
 
   println!("{}", total);
