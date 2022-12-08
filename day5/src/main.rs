@@ -42,8 +42,14 @@ fn main() {
     let from: usize = cap[2].parse().unwrap();
     let to: usize = cap[3].parse().unwrap();
 
+    let mut tmp_stack = Vec::new();
     for _ in 0..boxes {
       let c = stacks[from].pop().unwrap();
+      tmp_stack.push(c);
+    }
+
+    for _ in 0..boxes {
+      let c = tmp_stack.pop().unwrap();
       stacks[to].push(c);
     }
   }
